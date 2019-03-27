@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t dusanminic/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run dusanminic/docker-react npm run test -- --coverage
